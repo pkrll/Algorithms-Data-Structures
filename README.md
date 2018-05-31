@@ -1,2 +1,2 @@
-# Algorithms-Data-Structures
-Common algorithms &amp; data structures implemented in Swift, C and JavaScript
+# Algorithms & Data Structures
+Common algorithms &amp; data structures implemented in Swift.
