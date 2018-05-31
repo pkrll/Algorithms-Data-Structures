@@ -1,14 +1,20 @@
 matrix:
   include:
     - os: linux
-      language: generic
       dist: trusty
       sudo: required
+      language: cpp
     - os: osx
+      osx_image: xcode9.3
       language: objective-c
-      osx_image: xcode7.3
+      sudo: required
 script:
   - swift build
   - swift test
+before_install:
+  - chmod ugo+x ./.scripts/InstallSwift.sh
+  - . ./.scripts/InstallSwift.sh
 notifications:
-  email: false
+  email:
+    on_success: never
+    on_failure: change
