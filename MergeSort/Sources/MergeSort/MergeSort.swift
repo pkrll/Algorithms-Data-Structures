@@ -21,29 +21,32 @@ func mergeSort<T: Comparable>(_ array: [T], compareUsing compare: (T, T) -> Bool
 }
 
 fileprivate func merge<T: Comparable>(_ array: [T], with anotherArray: [T], compareUsing compare: (T, T) -> Bool) -> [T] {
-	var lSide = array
-	var rSide = anotherArray
+	var leftIndex = 0
+	var leftArray = array
+
+	var rightIndex = 0
+	var rightArray = anotherArray
 
 	var sortedArray = [T]()
 
-	while lSide.count > 0 && rSide.count > 0 {
-		if compare(lSide[0], rSide[0]) {
-			sortedArray.append(lSide[0])
-			lSide = Array(lSide.dropFirst())
+	while leftIndex < leftArray.count && rightIndex < rightArray.count {
+		if compare(leftArray[leftIndex], rightArray[rightIndex]) {
+			sortedArray.append(leftArray[leftIndex])
+			leftIndex += 1
 		} else {
-			sortedArray.append(rSide[0])
-			rSide = Array(rSide.dropFirst())
+			sortedArray.append(rightArray[rightIndex])
+			rightIndex += 1
 		}
 	}
 
-	while lSide.count > 0 {
-		sortedArray.append(lSide[0])
-		lSide = Array(lSide.dropFirst())
+	while leftIndex < leftArray.count {
+		sortedArray.append(leftArray[leftIndex])
+		leftIndex += 1
 	}
 
-	while rSide.count > 0 {
-		sortedArray.append(rSide[0])
-		rSide = Array(rSide.dropFirst())
+	while rightIndex < rightArray.count {
+		sortedArray.append(rightArray[rightIndex])
+		rightIndex += 1
 	}
 
 	return sortedArray
