@@ -38,11 +38,8 @@ final class BinarySearchTests: XCTestCase {
 
 		let capacity = 1000000
 
-		for _ in 0..<capacity {
-			let randomNumber = Int(arc4random_uniform(UInt32(capacity)))
-			if BinarySearchTests.largeRandomArray.contains(randomNumber) == false {
-				BinarySearchTests.largeRandomArray.append(randomNumber)
-			}
+		for i in 0..<capacity {
+			BinarySearchTests.largeRandomArray.append(i)
 		}
 
 		print("Large random array created. Now sorting...")
