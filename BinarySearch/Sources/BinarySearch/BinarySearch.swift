@@ -6,6 +6,8 @@
 // 	the index of a specific key in a sorted array,
 // 	where you repeatedly divide the list in half.
 //
+// 	Worst-case complexity: O(log n)
+//
 
 func binarySearch<T: Comparable>(for key: T, in array: [T]) -> Int? {
 	// return binarySearch(array, key: key)
