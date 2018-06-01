@@ -13,9 +13,10 @@ final class SelectionSortTests: XCTestCase {
 
 	func testSelectionSortRandom() {
 		var unsortedArray: [UInt32] = []
+		let capacity = 1000
 
-		for _ in 1...2000 {
-			let randomNumber = arc4random_uniform(4096)
+		for _ in 1..<capacity {
+			let randomNumber = arc4random_uniform(UInt32(capacity))
 			unsortedArray.append(randomNumber)
 		}
 
