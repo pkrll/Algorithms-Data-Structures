@@ -41,6 +41,7 @@ public class LinkedList<T: Equatable> {
 
 	public func prepend(_ data: T) {
 		let node = Node(data, next: self.head)
+		self.size += 1
 
 		guard self.head != nil else {
 			self.head = node
@@ -49,11 +50,11 @@ public class LinkedList<T: Equatable> {
 		}
 
 		self.head = node
-		self.size += 1
 	}
 
 	public func append(_ data: T) {
 		let node = Node(data)
+		self.size += 1
 
 		guard let tail = self.tail else {
 			self.head = node
@@ -63,7 +64,6 @@ public class LinkedList<T: Equatable> {
 
 		tail.next = node
 		self.tail = node
-		self.size += 1
 	}
 
 	public func insert(_ data: T, at index: Int) {
@@ -82,32 +82,39 @@ public class LinkedList<T: Equatable> {
 		var node = self.head
 		var prev = self.head
 
-		for _ in 0...index {
+		for _ in 0..<index {
 			prev = node
 			node = node!.next
 		}
 
 		prev?.next = Node(data, next: prev?.next)
+		self.size += 1
 	}
 
 	public func remove(_ data: T) -> Bool {
-		guard let current = self.head else {
+		guard self.size > 0 else {
 			return false
 		}
 
-		guard current.data != data else {
-			self.head = current.next
-			current.next = nil
+		var current = self.head
+
+		guard current?.data != data else {
+			self.head = current?.next
+			current?.next = nil
+			self.size -= 1
 			return true
 		}
 
-		while let next = current.next {
+		while let next = current?.next {
 			if next.data == data {
-				current.next = next.next
+				current?.next = next.next
 				next.next = nil
+				self.size -= 1
 
 				return true
 			}
+
+			current = current?.next
 		}
 
 		return false

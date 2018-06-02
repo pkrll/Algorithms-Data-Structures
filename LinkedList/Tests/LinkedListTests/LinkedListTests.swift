@@ -3,7 +3,7 @@ import XCTest
 
 final class LinkedListTests: XCTestCase {
 
-	let list: LinkedList<Int>
+	var list: LinkedList<Int>!
 
 	func testLinkedListPrepend() {
 		XCTAssertEqual(self.list.count, 0)
@@ -53,19 +53,56 @@ final class LinkedListTests: XCTestCase {
 
 		let n = Int(arc4random_uniform(UInt32(100)))
 		XCTAssertEqual(self.list[(n-1)], n)
-		XCTAssertEqual(self.list[4], 5)
 	}
 
 	func testLinkedListInsert() {
-		let self.list = LinkedList<Int>()
+		XCTAssertEqual(self.list.count, 0)
+
+		self.list.insert(0, at: 0)
+		self.list.insert(1, at: 0)
+		XCTAssertEqual(self.list.first, 1)
+		self.list.insert(2, at: 0)
+		XCTAssertEqual(self.list.first, 2)
+		self.list.insert(3, at: 1)
+		XCTAssertEqual(self.list[1], 3)
+		self.list.insert(4, at: 5)
+		XCTAssertEqual(self.list.last, 4)
+
+		for i in 5...100 {
+			list.insert(i, at: i)
+		}
+
+		XCTAssertEqual(self.list.count, 101)
+		XCTAssertEqual(self.list[55], 55)
+		let n = Int(arc4random_uniform(UInt32(100)))
+		XCTAssertEqual(self.list[n], n)
+	}
+
+	func testLinkedListRemove() {
+		XCTAssertEqual(self.list.count, 0)
+
+		for i in 0..<100 {
+			list.append(i)
+		}
+
+		XCTAssertTrue(list.remove(10))
+		XCTAssertEqual(self.list.count, 99)
+		XCTAssertEqual(self.list[10], 11)
+
+		XCTAssertFalse(list.remove(101))
+		XCTAssertFalse(list.remove(10))
+		XCTAssertTrue(list.remove(0))
+		XCTAssertEqual(self.list.count, 98)
 	}
 
 	override func setUp() {
-		self.self.list = LinkedList<Int>()
+		self.list = LinkedList<Int>()
 	}
 
 	static var allTests = [
 		("testLinkedListPrepend", testLinkedListPrepend),
 		("testLinkedListAppend", testLinkedListAppend),
+		("testLinkedListInsert", testLinkedListInsert),
+		("testLinkedListRemove", testLinkedListRemove),
 	]
 }
