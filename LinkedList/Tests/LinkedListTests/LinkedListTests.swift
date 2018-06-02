@@ -74,8 +74,14 @@ final class LinkedListTests: XCTestCase {
 
 		XCTAssertEqual(self.list.count, 101)
 		XCTAssertEqual(self.list[55], 55)
-		let n = Int(arc4random_uniform(UInt32(100)))
+		let n = Int(arc4random_uniform(UInt32(99)))
 		XCTAssertEqual(self.list[n], n)
+
+		self.list.insert(101, at: -5)
+		XCTAssertEqual(self.list[97], 101)
+
+		self.list.insert(122, at: -1)
+		XCTAssertEqual(self.list.last, 122)
 	}
 
 	func testLinkedListRemove() {
