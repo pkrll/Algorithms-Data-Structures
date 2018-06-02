@@ -136,6 +136,20 @@ public class LinkedList<T: Equatable> {
 		return node?.data
 	}
 
+	public func contains(element: T) -> Bool {
+		var node = self.head
+
+		while node != nil {
+			if node!.data == element {
+				return true
+			}
+
+			node = node?.next
+		}
+
+		return false
+	}
+
 	private func adjustIndex(_ index: Int) -> Int {
 		if index < 0 {
 			return 1 + index + self.size

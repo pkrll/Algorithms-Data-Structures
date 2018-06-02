@@ -91,14 +91,29 @@ final class LinkedListTests: XCTestCase {
 			list.append(i)
 		}
 
-		XCTAssertTrue(list.remove(10))
+		XCTAssertTrue(self.list.remove(10))
 		XCTAssertEqual(self.list.count, 99)
 		XCTAssertEqual(self.list[10], 11)
 
-		XCTAssertFalse(list.remove(101))
-		XCTAssertFalse(list.remove(10))
-		XCTAssertTrue(list.remove(0))
+		XCTAssertFalse(self.list.remove(101))
+		XCTAssertFalse(self.list.remove(10))
+		XCTAssertTrue(self.list.remove(0))
 		XCTAssertEqual(self.list.count, 98)
+	}
+
+	func testLinkedListContains() {
+		XCTAssertFalse(self.list.contains(element: 0))
+		list.append(0)
+		XCTAssertTrue(self.list.contains(element: 0))
+
+		list.append(1)
+		XCTAssertTrue(self.list.contains(element: 1))
+
+		for i in 0..<100 {
+			list.append(i)
+		}
+
+		XCTAssertTrue(self.list.contains(element: 14))
 	}
 
 	override func setUp() {
@@ -110,5 +125,6 @@ final class LinkedListTests: XCTestCase {
 		("testLinkedListAppend", testLinkedListAppend),
 		("testLinkedListInsert", testLinkedListInsert),
 		("testLinkedListRemove", testLinkedListRemove),
+		("testLinkedListContains", testLinkedListContains),
 	]
 }
