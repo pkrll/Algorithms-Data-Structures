@@ -3,63 +3,69 @@ import XCTest
 
 final class LinkedListTests: XCTestCase {
 
+	let list: LinkedList<Int>
+
 	func testLinkedListPrepend() {
-		let list = LinkedList<Int>()
+		XCTAssertEqual(self.list.count, 0)
 
-		XCTAssertEqual(list.count, 0)
-
-		list.prepend(1)
-		XCTAssertEqual(list.first, 1)
-		list.prepend(2)
-		XCTAssertEqual(list.first, 2)
-		list.prepend(3)
-		list.prepend(4)
-		list.prepend(5)
-		list.prepend(6)
-		XCTAssertEqual(list.first, 6)
-		XCTAssertEqual(list.last, 1)
+		self.list.prepend(1)
+		XCTAssertEqual(self.list.first, 1)
+		self.list.prepend(2)
+		XCTAssertEqual(self.list.first, 2)
+		self.list.prepend(3)
+		self.list.prepend(4)
+		self.list.prepend(5)
+		self.list.prepend(6)
+		XCTAssertEqual(self.list.first, 6)
+		XCTAssertEqual(self.list.last, 1)
 
 		for i in 7...100 {
-			list.prepend(i)
+			self.list.prepend(i)
 		}
 
-		XCTAssertEqual(list.first, 100)
-		XCTAssertEqual(list.last, 1)
+		XCTAssertEqual(self.list.first, 100)
+		XCTAssertEqual(self.list.last, 1)
 
 		let n = Int(arc4random_uniform(UInt32(100)))
-		XCTAssertEqual(list[99-(n-1)], n)
+		XCTAssertEqual(self.list[99-(n-1)], n)
 	}
 
 	func testLinkedListAppend() {
-		let list = LinkedList<Int>()
+		XCTAssertEqual(self.list.count, 0)
 
-		XCTAssertEqual(list.count, 0)
-
-		list.append(1)
-		XCTAssertEqual(list.last, 1)
-		list.append(2)
-		XCTAssertEqual(list.last, 2)
-		list.append(3)
-		list.append(4)
-		list.append(5)
-		list.append(6)
-		XCTAssertEqual(list.last, 6)
-		XCTAssertEqual(list.first, 1)
+		self.list.append(1)
+		XCTAssertEqual(self.list.last, 1)
+		self.list.append(2)
+		XCTAssertEqual(self.list.last, 2)
+		self.list.append(3)
+		self.list.append(4)
+		self.list.append(5)
+		self.list.append(6)
+		XCTAssertEqual(self.list.last, 6)
+		XCTAssertEqual(self.list.first, 1)
 
 		for i in 7...100 {
-			list.append(i)
+			self.list.append(i)
 		}
 
-		XCTAssertEqual(list.last, 100)
-		XCTAssertEqual(list.first, 1)
+		XCTAssertEqual(self.list.last, 100)
+		XCTAssertEqual(self.list.first, 1)
 
 		let n = Int(arc4random_uniform(UInt32(100)))
-		XCTAssertEqual(list[(n-1)], n)
-		XCTAssertEqual(list[4], 5)
+		XCTAssertEqual(self.list[(n-1)], n)
+		XCTAssertEqual(self.list[4], 5)
+	}
 
+	func testLinkedListInsert() {
+		let self.list = LinkedList<Int>()
+	}
+
+	override func setUp() {
+		self.self.list = LinkedList<Int>()
 	}
 
 	static var allTests = [
 		("testLinkedListPrepend", testLinkedListPrepend),
+		("testLinkedListAppend", testLinkedListAppend),
 	]
 }
