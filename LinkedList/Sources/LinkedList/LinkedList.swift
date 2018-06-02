@@ -69,7 +69,7 @@ public class LinkedList<T: Equatable> {
 	public func insert(_ data: T, at index: Int) {
 		let index = self.adjustIndex(index)
 
-		guard index <= self.size else {
+		guard index < self.size else {
 			self.append(data)
 			return
 		}
@@ -84,7 +84,7 @@ public class LinkedList<T: Equatable> {
 
 		for _ in 0..<index {
 			prev = node
-			node = node!.next
+			node = node?.next
 		}
 
 		prev?.next = Node(data, next: prev?.next)
