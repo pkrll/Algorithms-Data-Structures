@@ -120,6 +120,12 @@ public class LinkedList<T: Equatable> {
 		return false
 	}
 
+	public func removeAll() {
+		self.head = nil
+		self.tail = nil
+		self.size = 0
+	}
+
 	public func element(at index: Int) -> T? {
 		let index = self.adjustIndex(index)
 
