@@ -10,7 +10,12 @@ script:
   - cd InsertionSort && swift test && cd ..
   - cd BubbleSort && swift test && cd ..
   - cd MergeSort && swift test && cd ..
+  - cd QuickSort && swift test && cd ..
   - cd SelectionSort && swift test && cd ..
+  - cd JumpSearch && swift test && cd ..
+  - cd LinearSearch && swift test && cd ..
+  - cd LinkedList && swift test && cd ..
+  - cd BinarySearch && swift test && cd ..
 before_install:
   - chmod ugo+x ./.scripts/InstallSwift.sh
   - . ./.scripts/InstallSwift.sh
