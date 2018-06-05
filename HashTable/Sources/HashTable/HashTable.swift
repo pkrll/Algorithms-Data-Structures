@@ -1,10 +1,13 @@
 
-public class HashTable<K: Hashable, V>: CustomStringConvertible {
+public class HashTable<K: Hashable, V>: Sequence, IteratorProtocol, CustomStringConvertible {
 
 	private typealias Item = (key: K, value: V)
 	private typealias Slot = [Item]
 
+	private var slotIndex: Int = 0
+	private var itemIndex: Int = 0
 	private var slots: [Slot]
+
 	private(set) public var capacity: Int
 	private(set) public var count: Int
 
@@ -126,6 +129,26 @@ public class HashTable<K: Hashable, V>: CustomStringConvertible {
 			self.slots[slot].remove(at: spot)
 			self.count -= 1
 		}
+	}
+
+	public func next() -> (key: K, value: V)? {
+		guard self.slotIndex < self.slots.count else {
+			self.slotIndex = 0
+			return nil
+		}
+
+		guard self.itemIndex < self.slots[self.slotIndex].count else {
+			self.slotIndex += 1
+			self.itemIndex = 0
+			return self.next()
+		}
+
+		let slot = self.slots[self.slotIndex]
+		let item = slot[self.itemIndex]
+
+		self.itemIndex += 1
+
+		return item
 	}
 
 	private func index(forKey key: K) -> Int {
