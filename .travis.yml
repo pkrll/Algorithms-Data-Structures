@@ -16,6 +16,7 @@ script:
   - cd LinearSearch && swift test && cd ..
   - cd LinkedList && swift test && cd ..
   - cd BinarySearch && swift test && cd ..
+  - cd HashTable && swift test && cd ..
 before_install:
   - chmod ugo+x ./.scripts/InstallSwift.sh
   - . ./.scripts/InstallSwift.sh
