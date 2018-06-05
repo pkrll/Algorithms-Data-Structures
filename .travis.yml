@@ -5,7 +5,7 @@ matrix:
       language: objective-c
       sudo: required
 script:
-	make test
+  - make test
 before_install:
   - chmod ugo+x ./.scripts/InstallSwift.sh
   - . ./.scripts/InstallSwift.sh
