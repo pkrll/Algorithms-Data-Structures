@@ -123,7 +123,7 @@ public class HashTable<K: Hashable, V>: CustomStringConvertible {
 		}
 
 		if let spot = spot {
-			self.slots.remove(at: spot)
+			self.slots[slot].remove(at: spot)
 			self.count -= 1
 		}
 	}
