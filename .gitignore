@@ -68,5 +68,5 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 # C
-*.o
-*.out
+bin
+obj
