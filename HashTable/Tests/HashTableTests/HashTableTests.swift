@@ -75,6 +75,13 @@ final class HashTableTests: XCTestCase {
 			table.insert(i, forKey: i)
 		}
 
+		var expectedValue = 0
+		for resultedValue in table {
+			XCTAssertEqual(resultedValue.key, expectedValue)
+			XCTAssertEqual(resultedValue.value, expectedValue)
+			expectedValue += 1
+		}
+
 		XCTAssertEqual(table.count, 20)
 
 		XCTAssertEqual(table[15], 15)
