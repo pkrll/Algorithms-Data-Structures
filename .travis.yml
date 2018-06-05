@@ -5,7 +5,7 @@ matrix:
       language: objective-c
       sudo: required
 script:
-  - cd Stack && swift test && cd ..
+  - cd Stack && make test && cd ../..
   - cd Queue && swift test && cd ..
   - cd InsertionSort && swift test && cd ..
   - cd BubbleSort && swift test && cd ..
