@@ -75,10 +75,10 @@ int main(int argc, char *argv[]) {
 
   CU_initialize_registry();
 
-  CU_pSuite stack = CU_add_suite("Testing stack", NULL, NULL);
-	CU_add_test(stack, "Init", test_queue_init);
-	CU_add_test(stack, "Enqueue", test_queue_enqueue);
-	CU_add_test(stack, "Dequeue", test_queue_dequeue);
+  CU_pSuite queue = CU_add_suite("Testing queue", NULL, NULL);
+	CU_add_test(queue, "Init", test_queue_init);
+	CU_add_test(queue, "Enqueue", test_queue_enqueue);
+	CU_add_test(queue, "Dequeue", test_queue_dequeue);
 
   CU_basic_run_tests();
 
