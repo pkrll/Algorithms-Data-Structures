@@ -1,8 +1,6 @@
 {
   "name": "binarySearch",
   "version": "1.0.0",
-  "description": "Some project",
-  "author": "__AUTHORNAME__ <__AUTHOREMAIL__>",
   "private": true,
   "scripts": {
     "test": "jest"

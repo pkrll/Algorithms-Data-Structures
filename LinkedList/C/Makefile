@@ -1,7 +1,7 @@
 .PHONY: all test clean
 CC=gcc
 CFLAGS=-g -Wall #-Wextra -Werror -pedantic
-TFLAGS=-g
+TFLAGS=-g -lcunit -I/usr/local/Cellar/cunit/2.1-3/include -L/usr/local/Cellar/cunit/2.1-3/lib
 ## FOLDERS & FILES ##
 SRC_DIR=src
 OBJ_DIR=obj
