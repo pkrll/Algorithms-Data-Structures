@@ -1,0 +1,7 @@
+{
+  "name": "linearsearch",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  }
+}
