@@ -19,9 +19,9 @@ const iterativeBinarySearch = (array, element) => {
 		let middle = Math.floor(array.length / 2);
 
 		if (array[middle] == element) return true;
-		if (array[middle] > element) {
+		if (array[middle] < element) {
 			array = array.slice(middle + 1);
-		} else if (array[middle] < element) {
+		} else if (array[middle] > element) {
 			array = array.slice(0, middle);
 		}
 	}
