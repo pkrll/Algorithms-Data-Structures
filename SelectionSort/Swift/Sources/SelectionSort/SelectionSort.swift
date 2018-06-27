@@ -19,11 +19,9 @@ public func selectionSort<T: Comparable>(_ array: [T]) -> [T] {
 		var position = curIndex + 1
 		var smallest = array[position]
 
-		for index in position..<array.count {
-			if smallest > array[index] {
-				smallest = array[index]
-				position = index
-			}
+		for index in position..<array.count where smallest > array[index] {
+			smallest = array[index]
+			position = index
 		}
 
 		if current > smallest {
