@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/pkrll/Algorithms-Data-Structures.svg?token=yLCV69eJpRMMqJ5FRp1m&branch=master)](https://travis-ci.com/pkrll/Algorithms-Data-Structures)
+[![Build Status](https://travis-ci.org/pkrll/Algorithms-Data-Structures.svg?branch=master)](https://travis-ci.org/pkrll/Algorithms-Data-Structures)
 # Algorithms & Data Structures
 Common algorithms &amp; data structures implemented in Swift, C and Javascript.
 
