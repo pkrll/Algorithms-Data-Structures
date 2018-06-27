@@ -1,19 +1,19 @@
-const selectionsort = require('../src/selectionsort.js');
+const selectionSort = require('../src/selectionSort.js');
 
 let performanceArray = [];
 
-test('selectionsort()', () => {
+test('selectionSort()', () => {
 	let array = [64, 25, 12, 22, 11, 5, 34, 16, 98, 55];
 	let timeS = performance.now();
-	let sortedArray = selectionsort(array.slice());
+	let sortedArray = selectionSort.normal(array.slice());
 	let timeE = performance.now();
 
-	performanceArray.push({ name: 'selectionsort()', time: timeE - timeS, n: 5 });
+	performanceArray.push({ name: 'selectionSort()', time: timeE - timeS, n: 5 });
 
   expect(sortedArray).toEqual(array.sort((x, y) => x - y));
 });
 
-test('selectionsort() random', () => {
+test('selectionSort() random', () => {
 	let array = []
 
 	for (var i = 0; i < 200; i++) {
@@ -21,13 +21,30 @@ test('selectionsort() random', () => {
 	}
 
 	let timeS = performance.now();
-	let sortedArray = selectionsort(array.slice());
+	let sortedArray = selectionSort.normal(array.slice());
 	let timeE = performance.now();
 
-	performanceArray.push({ name: 'selectionsort() random', time: timeE - timeS, n: 400 });
+	performanceArray.push({ name: 'selectionSort() random', time: timeE - timeS, n: 400 });
 
   expect(sortedArray).toEqual(array.sort((x, y) => x - y));
 });
+
+test('stableSelectionSort() random', () => {
+	let array = []
+
+	for (var i = 0; i < 200; i++) {
+		array.push(Math.round(Math.random() * Math.floor(300)));
+	}
+
+	timeS = performance.now();
+	let sortedArray = selectionSort.stable(array.slice());
+	timeE = performance.now();
+
+	performanceArray.push({ name: 'stableSelectionSort() random', time: timeE - timeS, n: 400 });
+
+  expect(sortedArray).toEqual(array.sort((x, y) => x - y));
+});
+
 
 afterAll(() => {
 	for (var i = 0; i < performanceArray.length; i++) {
