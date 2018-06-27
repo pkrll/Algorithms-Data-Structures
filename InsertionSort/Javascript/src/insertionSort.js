@@ -6,10 +6,10 @@ function swapInPlace(array, j, i) {
 }
 
 function insertionSort(array) {
-	for (let i = 1; i < array.length; i++) {
-		for (let j = 0; j < i; j++) {
-			if (array[j] > array[i]) {
-				swapInPlace(array, j, i);
+	for (let i = 0; i < array.length; i++) {
+		for (let j = i + 1; j > 0; j--) {
+			if (array[j - 1] > array[j]) {
+				swapInPlace(array, j, j - 1);
 			}
 		}
 	}
