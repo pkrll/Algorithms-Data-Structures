@@ -25,7 +25,7 @@ function bubbleSortOptimized(array) {
 	for (let i = 0; i < array.length; i++) {
 		didSwap = false;
 
-		for (let j = 0; j < array.length - 1; j++) {
+		for (let j = 0; j < array.length - i - 1; j++) {
 			if (array[j] > array[j + 1]) {
 				didSwap = swapInPlace(array, j, j + 1);
 			}
