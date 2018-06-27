@@ -1,4 +1,3 @@
-
 function linearSearch(array, element) {
 	for (let i = 0; i < array.length; i++) {
 		if (array[i] == element) return true;
@@ -18,12 +17,10 @@ function jumpsearch(array, element) {
 		if (element == array[index]) return true;
 		index += jump;
 
-		if (element < array[index]) {
-			return linearSearch(array.slice(index - jump, index), element);
-		}
+		if (element < array[index]) break;
 	}
 
-	return false;
+	return linearSearch(array.slice(index - jump, index), element);
 }
 
 module.exports = jumpsearch;
