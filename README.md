@@ -9,6 +9,7 @@ Common algorithms &amp; data structures implemented in Swift, C and Javascript.
 * [Linked list](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/LinkedList)
 * [Queue](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/Queue)
 * [Stack](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/Stack)
+* [BinarySearchTree](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/BinarySearchTree)
 
 ### Search algorithms
 
