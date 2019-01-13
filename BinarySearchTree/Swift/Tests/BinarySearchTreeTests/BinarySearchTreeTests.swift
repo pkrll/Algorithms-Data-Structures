@@ -123,11 +123,13 @@ final class BinarySearchTreeTests: XCTestCase {
 
 		bTree.remove(40)
 		XCTAssertEqual(bTree.size, 6)
+		XCTAssertEqual(bTree.depth, 3)
 
 		bTree.remove(20)
 		bTree.remove(50)
 		bTree.remove(60)
 		XCTAssertEqual(bTree.size, 3)
+		XCTAssertEqual(bTree.depth, 2)
 	}
 
 	func testBalance() {
@@ -154,11 +156,54 @@ final class BinarySearchTreeTests: XCTestCase {
 		XCTAssertTrue(tree.isBalanced)
 	}
 
+	func testDepth() {
+		let tree = BinarySearchTree<Int, Int>()
+
+		for index in 0..<10 {
+			tree.insert(index, forKey: index)
+		}
+
+		XCTAssertEqual(tree.depth, 10)
+
+		for index in 0..<10 {
+			tree.remove(index)
+		}
+
+		XCTAssertEqual(tree.depth, 0)
+
+		tree.insert(40, forKey: 40)
+		tree.insert(20, forKey: 20)
+		tree.insert(32, forKey: 32)
+		tree.insert(75, forKey: 75)
+		tree.insert(50, forKey: 50)
+		tree.insert(45, forKey: 45)
+		tree.insert(60, forKey: 60)
+
+		XCTAssertEqual(tree.depth, 4)
+	}
+
+	func testKeysAndElements() {
+		let tree = BinarySearchTree<Int, String>()
+
+		for index in 0..<100 {
+			tree.insert("Element \(index)", forKey: index)
+		}
+
+		let keys = tree.keys
+		let elements = tree.elements
+
+		for index in 0..<100 {
+			XCTAssertEqual(keys[index], index)
+			XCTAssertEqual(elements[index], "Element \(index)")
+		}
+	}
+
 	static var allTests = [
 		("testSize", testSize),
 		("testInsert", testInsert),
 		("testFindElement", testFindElement),
 		("testRemove", testRemove),
-		("testBalance", testBalance)
+		("testBalance", testBalance),
+		("testKeysAndElements", testKeysAndElements)
 	]
 }
