@@ -8,8 +8,25 @@
 class BinarySearchTree<K: Comparable, T> {
 
 	private(set) var root: Node<K, T>?
+
 	var size: Int {
 		return self.size(self.root)
+	}
+
+	var depth: Int {
+		return self.depth(self.root)
+	}
+
+	var keys: [K] {
+		return self.keys(self.root)
+	}
+
+	var elements: [T] {
+		return self.elements(self.root)
+	}
+
+	var isBalanced: Bool {
+		return self.isBalanced(self.root)
 	}
 
 	func minimum() -> T? {
@@ -50,6 +67,49 @@ class BinarySearchTree<K: Comparable, T> {
 	func remove(_ key: K) {
 		if size == 0 { return }
 		self.root = self.remove(key, self.root)
+	}
+
+	func balance() {
+		let size = self.size
+		let keys = self.keys
+		let elements = self.elements
+
+		self.root = nil
+
+		self.balance(elements, withKeys: keys, startingAt: 0, endingAt: size - 1)
+	}
+
+	private func balance(_ elements: [T], withKeys keys: [K], startingAt start: Int, endingAt end: Int) {
+		if start <= end {
+			let middle = (start + end) / 2
+
+			self.insert(elements[middle], forKey: keys[middle])
+
+			self.balance(elements, withKeys: keys, startingAt: start, endingAt: middle - 1)
+			self.balance(elements, withKeys: keys, startingAt: middle + 1, endingAt: end)
+		}
+	}
+
+	private func keys(_ root: Node<K, T>?) -> [K] {
+		guard let node = root else { return [] }
+
+		var keys = [K]()
+		keys += self.keys(node.leftNode)
+		keys += [node.key]
+		keys += self.keys(node.rightNode)
+
+		return keys
+	}
+
+	private func elements(_ root: Node<K, T>?) -> [T] {
+		guard let node = root else { return [] }
+
+		var elements = [T]()
+		elements += self.elements(node.leftNode)
+		elements += [node.element]
+		elements += self.elements(node.rightNode)
+
+		return elements
 	}
 
 	private func remove(_ key: K, _ root: Node<K, T>?) -> Node<K, T>? {
@@ -137,6 +197,25 @@ class BinarySearchTree<K: Comparable, T> {
 		}
 
 		return 1 + self.size(node.leftNode) + self.size(node.rightNode)
+	}
+
+	private func depth(_ root: Node<K, T>?) -> Int {
+		guard let node = root else { return 0 }
+
+		let depthLeft = self.depth(node.leftNode) + 1
+		let depthRight = self.depth(node.rightNode) + 1
+
+		return depthLeft > depthRight ? depthLeft : depthRight
+	}
+
+	private func isBalanced(_ root: Node<K, T>?) -> Bool {
+		guard let node = root else { return true }
+
+		let leftTree = self.isBalanced(node.leftNode)
+		let rightTree = self.isBalanced(node.rightNode)
+		let height = abs(self.depth(node.leftNode) - self.depth(node.rightNode))
+
+		return leftTree && rightTree && height <= 1
 	}
 
 }
