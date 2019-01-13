@@ -108,7 +108,7 @@ final class BinarySearchTreeTests: XCTestCase {
 
 		for index in 0..<90 {
 			tree.remove(index)
-			// XCTAssertEqual(tree.size, 100 - index - 1)
+			XCTAssertEqual(tree.size, 100 - index - 1)
 		}
 
 		let bTree = BinarySearchTree<Int, Int>()
@@ -130,10 +130,35 @@ final class BinarySearchTreeTests: XCTestCase {
 		XCTAssertEqual(bTree.size, 3)
 	}
 
+	func testBalance() {
+		let tree = BinarySearchTree<Int, String>()
+
+		for index in 0...500 {
+			tree.insert("\(index)", forKey: index)
+		}
+
+		XCTAssertFalse(tree.isBalanced)
+
+		tree.balance()
+		tree.balance()
+
+		XCTAssertTrue(tree.isBalanced)
+
+		for index in 500...1000 {
+			tree.insert("\(index)", forKey: index)
+		}
+
+		XCTAssertFalse(tree.isBalanced)
+
+		tree.balance()
+		XCTAssertTrue(tree.isBalanced)
+	}
+
 	static var allTests = [
 		("testSize", testSize),
 		("testInsert", testInsert),
 		("testFindElement", testFindElement),
-		("testRemove", testRemove)
+		("testRemove", testRemove),
+		("testBalance", testBalance)
 	]
 }
