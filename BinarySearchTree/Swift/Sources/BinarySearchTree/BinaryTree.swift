@@ -8,7 +8,9 @@
 class BinarySearchTree<K: Comparable, T> {
 
 	private(set) var root: Node<K, T>?
-	private(set) var size: Int = 0
+	var size: Int {
+		return self.size(self.root)
+	}
 
 	func minimum() -> T? {
 		guard let node = self.minimum(self.root) else { return nil }
@@ -27,8 +29,6 @@ class BinarySearchTree<K: Comparable, T> {
 			let node = Node(withElement: element, forKey: key)
 			self.insert(node, withRoot: self.root!)
 		}
-
-		self.size += 1
 	}
 
 	func findElement(withKey key: K) -> T? {
@@ -64,8 +64,6 @@ class BinarySearchTree<K: Comparable, T> {
 			if node.rightNode == nil { return node.leftNode }
 
 			self.replace(node, with: self.minimum(node.rightNode)!)
-
-			self.size -= 1
 		}
 
 		return node
@@ -131,6 +129,14 @@ class BinarySearchTree<K: Comparable, T> {
 		}
 
 		return node
+	}
+
+	private func size(_ root: Node<K, T>?) -> Int {
+		guard let node = root else {
+			return 0
+		}
+
+		return 1 + self.size(node.leftNode) + self.size(node.rightNode)
 	}
 
 }
