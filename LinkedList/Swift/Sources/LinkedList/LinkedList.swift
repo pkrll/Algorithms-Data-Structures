@@ -1,8 +1,7 @@
-
 public class LinkedList<T: Equatable> {
 
-	private var head: Node<T>? = nil
-	private var tail: Node<T>? = nil
+	private var head: Node<T>?
+	private var tail: Node<T>?
 	private var size: Int = 0
 
 	public var count: Int {
@@ -166,7 +165,7 @@ public class LinkedList<T: Equatable> {
 
 }
 
-fileprivate class Node<T: Equatable> {
+private class Node<T: Equatable> {
 
 	fileprivate let data: T
 	fileprivate var next: Node<T>?
