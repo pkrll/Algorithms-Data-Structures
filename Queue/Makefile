@@ -15,3 +15,4 @@ test_swift:
 
 clean:
 	rm -rf $(CLEAN_FILES)
+	cd C && make clean
