@@ -1,4 +1,5 @@
 const Node = require('./Node.js');
+const mod  = (x, n) => (x % n + n) % n
 
 class LinkedList {
 
@@ -49,29 +50,40 @@ class LinkedList {
 	}
 
 	get(index) {
-		let counter = 0;
+		if (this._size == 0) return null;
+		if (index < 0) index = mod(index, this._size);
+
 		let node = this._first;
 
-		while (node && counter < index) {
+		for (let counter = 0; node && counter < index; counter++) {
 			node = node.next;
-			counter += 1;
 		}
 
 		return (node) ? node.element : null;
 	}
 
 	remove(index) {
-		let counter = 0;
+		if (this._size == 0) return false;
+		if (index < 0) index = mod(index, this._size);
+
 		let node = this._first;
 
-		while (node && counter < (index - 1)) {
+		for (let counter = 0; node && counter < (index - 1); counter++) {
 			node = node.next;
-			counter += 1;
 		}
 
-		if (node && node.next) {
-			node.next = node.next.next
+		if (node) {
 			this._size -= 1;
+
+			if (index == 0) {
+				this._first = this._first.next;
+			} else {
+				node.next = (node.next) ? node.next.next : null;
+			}
+
+			if (index == this._size) {
+				this._last = (this._size > 0) ? node : null;
+			}
 
 			return true;
 		}
