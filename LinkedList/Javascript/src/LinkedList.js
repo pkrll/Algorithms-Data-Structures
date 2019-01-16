@@ -21,56 +21,44 @@ class LinkedList {
 		return this._size;
 	}
 
-	append(element) {
-		let node = new Node(element);
+	insert(element, index) {
+		if (index < 0) index = mod(index, this._size + 1) || 0;
 
-		if (this._size > 0) {
-			this._last.next = node;
-			this._last = node;
-		} else {
-			this._last = node;
-			this._first = node;
+		let new_node = new Node(element);
+		let cur_node = this._first;
+
+		for (let counter = 0; cur_node && counter < (index - 1); counter++) {
+			cur_node = cur_node.next;
 		}
 
+		if (cur_node) {
+			new_node.next = cur_node.next;
+			cur_node.next = new_node;
+		}
+
+		if (index == 0)          this._first = new_node;
+		if (index == this._size) this._last  = new_node;
+
 		this._size += 1;
+	}
+
+	append(element) {
+		this.insert(element, -1);
 	}
 
 	prepend(element) {
-		let node = new Node(element);
-
-		if (this._size > 0) {
-			node.next = this._first;
-			this._first = node;
-		} else {
-			this._last = node;
-			this._first = node;
-		}
-
-		this._size += 1;
+		this.insert(element, 0);
 	}
 
 	get(index) {
-		if (this._size == 0) return null;
-		if (index < 0) index = mod(index, this._size);
-
-		let node = this._first;
-
-		for (let counter = 0; node && counter < index; counter++) {
-			node = node.next;
-		}
-
+		let node = this._getNode(index);
 		return (node) ? node.element : null;
 	}
 
 	remove(index) {
 		if (this._size == 0) return false;
-		if (index < 0) index = mod(index, this._size);
 
-		let node = this._first;
-
-		for (let counter = 0; node && counter < (index - 1); counter++) {
-			node = node.next;
-		}
+		let node = this._getNode(index - 1)
 
 		if (node) {
 			this._size -= 1;
@@ -89,6 +77,19 @@ class LinkedList {
 		}
 
 		return false;
+	}
+
+	_getNode(index) {
+		if (this._size == 0) return null;
+		if (index < 0) index = mod(index, this._size);
+
+		let node = this._first;
+
+		for (let counter = 0; node && counter < index; counter++) {
+			node = node.next;
+		}
+
+		return node;
 	}
 }
 
