@@ -1,13 +1,13 @@
 .PHONY: all test clean run
 CC=gcc
-CFLAGS=-Wall -Werror -pedantic
-TFLAGS=-g
+CFLAGS=-Wall #-Werror -pedantic
+TFLAGS=-g -lcunit -I/usr/local/Cellar/cunit/2.1-3/include -L/usr/local/Cellar/cunit/2.1-3/lib
 ## FOLDERS & FILES ##
 SRC_DIR=src
 OBJ_DIR=obj
 BIN_DIR=bin
 TST_DIR=tests
-BINARY=$(BIN_DIR)/LinearSearch
+BINARY=$(BIN_DIR)/linearsearch
 
 SOURCES  = $(wildcard $(SRC_DIR)/*.c)
 SOURCES += $(wildcard $(TST_DIR)/*.c)
