@@ -83,3 +83,20 @@ test('LinkedList remove', () => {
 	}
 	expect(linkedList.size()).toBe(0);
 });
+
+test('LinkedList insert', () => {
+	let linkedList = new LinkedList();
+
+	linkedList.append("Hello");
+	linkedList.append("World");
+
+	linkedList.insert("Foo", -1);
+
+	expect(linkedList.last()).toBe("Foo");
+	linkedList.insert("Bar", 0);
+	expect(linkedList.first()).toBe("Bar");
+
+	linkedList.insert("Baz", 2);
+	expect(linkedList.get(2)).toBe("Baz");
+	expect(linkedList.get(3)).toBe("World");
+});
