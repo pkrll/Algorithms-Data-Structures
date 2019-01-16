@@ -21,15 +21,6 @@ class LinkedList {
 		return this._size;
 	}
 
-	print() {
-		let node = this._first;
-		for (let counter = 0; node && counter < this._size; counter++) {
-			console.log(node.element);
-			node = node.next;
-		}
-
-	}
-
 	insert(element, index) {
 		if (index < 0) index = mod(index, this._size + 1) || 0;
 
