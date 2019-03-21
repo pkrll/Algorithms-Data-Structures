@@ -1,0 +1,13 @@
+{
+  "name": "QuickSort",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Ardalan Samimi <ardalan@saturnfive.se>",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.2.0"
+  }
+}
