@@ -1,7 +1,7 @@
 .PHONY: test clean
 
 test:
-	python -m tests.binarysearch_test
+	python -m tests.test_binarysearch
 
 clean:
 	rm -f src/*.pyc
