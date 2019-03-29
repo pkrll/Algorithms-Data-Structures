@@ -15,8 +15,7 @@ $(SUB_DIRS):
 	$(MAKE) -C $@
 
 clean:
-	@echo "Cleaning files..."
 	@for dir in $(SUB_DIRS) ; do \
-		rm -rf $$dir/C/obj/* ; \
-		rm -rf $$dir/Swift/.build ; \
+		$(MAKE) -C $$dir clean ; \
 	done
+	@echo "Files cleaned..."
