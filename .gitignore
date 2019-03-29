@@ -70,3 +70,6 @@ fastlane/test_output
 # C
 bin/*
 obj/*.o
+
+# Java
+*.class
