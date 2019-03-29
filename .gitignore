@@ -73,3 +73,6 @@ obj/*.o
 
 # Java
 *.class
+
+# Python
+*.pyc
