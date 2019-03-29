@@ -8,3 +8,4 @@ test:
 
 clean:
 	rm -rf $(CLEAN_FILES)
+	cd Java && make clean
