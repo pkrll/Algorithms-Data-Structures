@@ -4,17 +4,17 @@ import org.junit.runner.notification.Failure;
 import org.junit.Test;
 
 public class TestRunner {
-    @Test
-    public void run() {
-        System.out.println("\n");
-        Result result = JUnitCore.runClasses(TestSuite.class);
+	@Test
+	public void run() {
+		System.out.println("\n");
+		Result result = JUnitCore.runClasses(TestSuite.class);
 
-        for (Failure failure : result.getFailures()) {
-            System.out.println(failure.toString());
-        }
+		for (Failure failure : result.getFailures()) {
+			System.out.println(failure.toString());
+		}
 
-        if (result.wasSuccessful()) {
-            System.out.println("\nAll tests passed!");
-        }
-    }
+		if (result.wasSuccessful()) {
+			System.out.println("\nAll tests passed!");
+		}
+	}
 }
