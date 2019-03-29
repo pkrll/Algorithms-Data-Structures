@@ -26,6 +26,11 @@ public class TestPancakeSort {
 		sorted = array4.clone();
 		Arrays.sort(sorted);
 		assertArrayEquals(PancakeSort.sort(array4), sorted);
+
+		int[] array5 = {5,4,3,2,1};
+		sorted = array5.clone();
+		Arrays.sort(sorted);
+		assertArrayEquals(PancakeSort.sort(array5), sorted);
 	}
 
 }
