@@ -9,3 +9,4 @@ test:
 clean:
 	rm -rf $(CLEAN_FILES)
 	cd Java && make clean
+	cd Python && make clean
