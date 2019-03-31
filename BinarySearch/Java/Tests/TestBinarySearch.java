@@ -32,4 +32,26 @@ public class TestBinarySearch {
 		assertEquals(BinarySearch.search(array, -5), -1);
 	}
 
+		@Test
+		public void TestBinarySearchSingle() {
+			int[] array = {1};
+
+			assertEquals(BinarySearch.search(array, 1), 0);
+			assertEquals(BinarySearch.search(array, 11), -1);
+			assertEquals(BinarySearch.search(array, 10), -1);
+			assertEquals(BinarySearch.search(array, -1), -1);
+			assertEquals(BinarySearch.search(array, -5), -1);
+		}
+
+		@Test
+		public void TestBinarySearchEmpty() {
+			int[] array = {};
+
+			assertEquals(BinarySearch.search(array, 1), -1);
+			assertEquals(BinarySearch.search(array, 11), -1);
+			assertEquals(BinarySearch.search(array, 10), -1);
+			assertEquals(BinarySearch.search(array, -1), -1);
+			assertEquals(BinarySearch.search(array, -5), -1);
+		}
+
 }
