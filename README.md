@@ -1,9 +1,8 @@
 [![Build Status](https://travis-ci.org/pkrll/Algorithms-Data-Structures.svg?branch=master)](https://travis-ci.org/pkrll/Algorithms-Data-Structures)
 # Algorithms & Data Structures
-Common algorithms &amp; data structures implemented in Swift, C and Javascript.
+Common algorithms &amp; data structures implemented in Swift, C, Python, Java and Javascript.
 
 ### Data Structures
-
 
 * [Hashtable](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/HashTable)
 * [Linked list](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/LinkedList)
@@ -24,6 +23,11 @@ Common algorithms &amp; data structures implemented in Swift, C and Javascript.
 * [Insertion sort](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/InsertionSort)
 * [Selection sort](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/SelectionSort)
 * [Bubble sort](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/BubbleSort)
+* [Pancake sort](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/PancakeSort)
+
+### Other algorithms
+
+* [Subset sum](https://github.com/pkrll/Algorithms-Data-Structures/tree/master/SubsetSum)
 
 #### See also
 
