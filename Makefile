@@ -10,6 +10,24 @@ all:
 
 test: $(SUB_DIRS)
 
+test_js:
+	@for dir in $(SUB_DIRS) ; do \
+		$(MAKE) -C $$dir $@ ; \
+		echo "Finished testing: $$dir" ; \
+	done
+
+test_swift:
+	@for dir in $(SUB_DIRS) ; do \
+		$(MAKE) -C $$dir $@ ; \
+		echo "Finished testing: $$dir" ; \
+	done
+
+upgrade:
+	@for dir in $(SUB_DIRS) ; do \
+		$(MAKE) -C $$dir $@ ; \
+		echo "Finished upgrading: $$dir" ; \
+	done
+
 .PHONY: $(SUB_DIRS)
 $(SUB_DIRS):
 	$(MAKE) -C $@
