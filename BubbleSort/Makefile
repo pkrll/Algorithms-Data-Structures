@@ -1,6 +1,6 @@
 .PHONY: test
 
-CLEAN_FILES=Swift/.build
+CLEAN_FILES=Swift/.build Javascript/node_modules
 
 test: test_swft test_js
 

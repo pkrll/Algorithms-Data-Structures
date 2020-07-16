@@ -1,6 +1,6 @@
 .PHONY: test
 
-CLEAN_FILES=
+CLEAN_FILES=ConnectedIslands/node_modules
 
 test:
 	cd ConnectedIslands && npm install && npm test
