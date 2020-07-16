@@ -2,7 +2,7 @@
 
 CLEAN_FILES=Swift/.build Javascript/node_modules
 
-test: test_swft test_js
+test: test_swift test_js
 
 test_js:
 	cd Javascript && npm install && npm test
