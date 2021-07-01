@@ -12,5 +12,6 @@ let package = Package(
     targets: [
         .target(name: "Algorithms", dependencies: [], path: "Sources/"),
         .testTarget(name: "BinarySearchTests", dependencies: ["Algorithms"]),
+        .testTarget(name: "InsertionSortTests", dependencies: ["Algorithms"]),
     ]
 )

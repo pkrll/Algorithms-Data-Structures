@@ -1,5 +1,4 @@
 import XCTest
-import Extensions
 @testable import Algorithms
 
 final class BinarySearchTests: XCTestCase {
@@ -20,28 +19,28 @@ final class BinarySearchTests: XCTestCase {
         analyzer.prepare()
         key = values.binarySearch(for: 8)
         XCTAssertEqual(key, nil)
-        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(values.count))
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(of: values.count, using: .logarithmic))
         
         analyzer.clear()
         analyzer.prepare()
         key = values.binarySearch(for: 6)
         XCTAssertEqual(key, 5)
-        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(values.count))
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(of: values.count, using: .logarithmic))
 
         analyzer.clear()
         analyzer.prepare()
         key = primes.binarySearch(for: 67)
-        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(primes.count))
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(of: primes.count, using: .logarithmic))
         
         analyzer.clear()
         analyzer.prepare()
         key = primes.binarySearch(for: 79)
-        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(primes.count))
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(of: primes.count, using: .logarithmic))
         
         analyzer.clear()
         analyzer.prepare()
         key = primes.binarySearch(for: 73)
-        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(primes.count))
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(of: primes.count, using: .logarithmic))
     }
     
     func testBinarySearchRandom() {
@@ -53,7 +52,7 @@ final class BinarySearchTests: XCTestCase {
         analyzer.prepare()
         let key = randomArray.binarySearch(for: randomElement)
         XCTAssertEqual(key, appleKey)
-        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(randomArray.count))
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(of: randomArray.count, using: .logarithmic))
     }
     
     // MARK: - Iterative Binary Search

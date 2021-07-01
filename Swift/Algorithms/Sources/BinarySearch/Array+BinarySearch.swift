@@ -4,8 +4,7 @@ extension Array where Element: Comparable {
     
     private var isNotEmpty: Bool { !isEmpty }
     
-    dynamic
-    func binarySearch(for element: Element) -> Int? {
+    public func binarySearch(for element: Element) -> Int? {
         binarySearch(for: element, startIndex: 0, endIndex: count - 1)
     }
     
