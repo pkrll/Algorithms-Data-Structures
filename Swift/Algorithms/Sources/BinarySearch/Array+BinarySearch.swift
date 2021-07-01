@@ -22,7 +22,7 @@ extension Array where Element: Comparable {
         }
         
         let difference = startIndex + endIndex
-        let middleIndex = Int(round(Double(difference) / 2))
+        let middleIndex = difference / 2
         let middleValue = self[middleIndex]
         
         if middleValue > element {
