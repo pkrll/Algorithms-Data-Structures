@@ -6,11 +6,11 @@ import PackageDescription
 let package = Package(
     name: "Algorithms",
     products: [
-        .library(name: "Algorithms", targets: ["Algorithms"]),
+        .library(name: "Algorithms", targets: ["Algorithms"])
     ],
     dependencies: [],
     targets: [
         .target(name: "Algorithms", dependencies: [], path: "Sources/"),
-        .testTarget(name: "AlgorithmsTests",dependencies: ["Algorithms"]),
+        .testTarget(name: "BinarySearchTests", dependencies: ["Algorithms"]),
     ]
 )
