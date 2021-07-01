@@ -4,24 +4,44 @@ import Extensions
 
 final class BinarySearchTests: XCTestCase {
     
-    static var values = [Int]()
-    static var primes = [Int]()
-    static var largeRandomArray = [Int]()
+    static var values: [Int] = []
+    static var primes: [Int] = []
+    static var largeRandomArray: [Int] = []
     static var randomElement = 0
+    
+    private let analyzer = RecursionAnalyzer.self
     
     func testBinarySearch() throws {
         let values = BinarySearchTests.values
         let primes = BinarySearchTests.primes
         var key: Int?
+
+        analyzer.clear()
+        analyzer.prepare()
+        key = values.binarySearch(for: 8)
+        XCTAssertEqual(key, nil)
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(values.count))
         
+        analyzer.clear()
+        analyzer.prepare()
         key = values.binarySearch(for: 6)
         XCTAssertEqual(key, 5)
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(values.count))
+
+        analyzer.clear()
+        analyzer.prepare()
         key = primes.binarySearch(for: 67)
-        XCTAssertEqual(key, 18)
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(primes.count))
+        
+        analyzer.clear()
+        analyzer.prepare()
         key = primes.binarySearch(for: 79)
-        XCTAssertEqual(key, 21)
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(primes.count))
+        
+        analyzer.clear()
+        analyzer.prepare()
         key = primes.binarySearch(for: 73)
-        XCTAssertEqual(key, 20)
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(primes.count))
     }
     
     func testBinarySearchRandom() {
@@ -29,8 +49,11 @@ final class BinarySearchTests: XCTestCase {
         let randomArray = BinarySearchTests.largeRandomArray
         let appleKey = randomArray.firstIndex(of: randomElement)
         
+        analyzer.clear()
+        analyzer.prepare()
         let key = randomArray.binarySearch(for: randomElement)
         XCTAssertEqual(key, appleKey)
+        XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(randomArray.count))
     }
     
     // MARK: - Iterative Binary Search
