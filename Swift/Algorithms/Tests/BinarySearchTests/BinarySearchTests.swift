@@ -33,6 +33,32 @@ final class BinarySearchTests: XCTestCase {
         XCTAssertEqual(key, appleKey)
     }
     
+    // MARK: - Iterative Binary Search
+    
+    func testbinarySearchIteratively() {
+        let values = BinarySearchTests.values
+        let primes = BinarySearchTests.primes
+        var key: Int?
+        
+        key = values.binarySearchIteratively(for: 6)
+        XCTAssertEqual(key, 5)
+        key = primes.binarySearchIteratively(for: 67)
+        XCTAssertEqual(key, 18)
+        key = primes.binarySearchIteratively(for: 79)
+        XCTAssertEqual(key, 21)
+        key = primes.binarySearchIteratively(for: 73)
+        XCTAssertEqual(key, 20)
+    }
+    
+    func testBinarySearchIterativelyRandom() {
+        let randomElement = BinarySearchTests.randomElement
+        let randomArray = BinarySearchTests.largeRandomArray
+        let appleKey = randomArray.firstIndex(of: randomElement)
+        
+        let key = randomArray.binarySearchIteratively(for: randomElement)
+        XCTAssertEqual(key, appleKey)
+    }
+    
     override class func setUp() {
         BinarySearchTests.values = [1,2,3,4,5,6,7,9,10]
         BinarySearchTests.primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
