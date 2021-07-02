@@ -2,31 +2,14 @@ import Foundation
 
 extension Array where Element: Comparable {
     
-    enum SortingTechnique {
-        case inPlace
-        case outOfPlace
-    }
-    
-    @discardableResult
-    mutating func insertionSort(using technique: SortingTechnique) -> Self {
-        switch technique {
-        case .inPlace:
-            insertionSortInPlace(index: 1)
-        case .outOfPlace:
-            return Self.insertionSortOutOfPlace(self, index: 0)
-        }
-        
-        return self
-    }
-    
     dynamic
-    fileprivate mutating func insertionSortInPlace(index: Int) {
+    mutating func insertionSort(index: Int = 1) {
         guard index < count else {
             return
         }
         
         guard index > 0 else {
-            insertionSortInPlace(index: index + 1)
+            insertionSort(index: index + 1)
             return
         }
         
@@ -34,22 +17,18 @@ extension Array where Element: Comparable {
         let previousValue = self[index - 1]
         
         guard currentValue < previousValue else {
-            insertionSortInPlace(index: index + 1)
+            insertionSort(index: index + 1)
             return
         }
         
         self[index] = previousValue
         self[index - 1] = currentValue
-        insertionSortInPlace(index: index - 1)
-    }
-
-    fileprivate static func insertionSortOutOfPlace(_ array: Self, index: Int) -> Self {
-        array
+        insertionSort(index: index - 1)
     }
     
-    @_dynamicReplacement(for: insertionSortInPlace(index:))
-    mutating func _replacing_insertionSortInPlace(index: Int) {
+    @_dynamicReplacement(for: insertionSort(index:))
+    mutating func _replacing_insertionSort(index: Int) {
         RecursionAnalyzer.didEnterFunction()
-        insertionSortInPlace(index: index)
+        insertionSort(index: index)
     }
 }

@@ -12,7 +12,7 @@ final class InsertionSortTests: XCTestCase {
         
         analyzer.clear()
         analyzer.prepare()
-        pkrllSortedPile.insertionSort(using: .inPlace)
+        pkrllSortedPile.insertionSort()
         XCTAssertEqual(pkrllSortedPile, appleSortedPile)
         XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(of: appleSortedPile.count, using: .quadratic))
     }
@@ -30,7 +30,7 @@ final class InsertionSortTests: XCTestCase {
         
         analyzer.clear()
         analyzer.prepare()
-        pkrllSortedPile.insertionSort(using: .inPlace)
+        pkrllSortedPile.insertionSort()
         XCTAssertEqual(pkrllSortedPile, appleSortedPile)
         XCTAssertLessThanOrEqual(analyzer.callCounter, analyzer.upperBound(of: appleSortedPile.count, using: .quadratic))
     }
