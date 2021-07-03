@@ -3,9 +3,7 @@ import Foundation
 extension Array where Element: Comparable {
     
     mutating func bubbleSortIteratively() {
-        var index = 0
-        
-        while index < count {
+        for index in 0..<count {
             let lastSortedIndex = count - index - 1
             
             for key in 0..<lastSortedIndex {
@@ -13,8 +11,6 @@ extension Array where Element: Comparable {
                     swapAt(key, key + 1)
                 }
             }
-            
-            index += 1
         }
     }
 }
