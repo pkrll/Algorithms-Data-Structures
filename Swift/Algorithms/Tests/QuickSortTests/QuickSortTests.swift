@@ -5,7 +5,7 @@ final class QuickSortTests: XCTestCase {
 
     private let analyzer = RecursionAnalyzer.self
     
-    func testInsertionSort() {
+    func testQuickSort() {
         let sortPile = [25, 2, 654, 45, 1356, 3, 1, 65, 8, 17, 4, 245, 9]
         let appleSortedPile = sortPile.sorted()
         var pkrllSortedPile = sortPile
@@ -14,7 +14,7 @@ final class QuickSortTests: XCTestCase {
         XCTAssertEqual(pkrllSortedPile, appleSortedPile)
     }
     
-    func testInsertionSortRandom() {
+    func testQuickSortRandom() {
         var pile: [UInt32] = []
         
         for _ in 1...150 {
@@ -29,7 +29,7 @@ final class QuickSortTests: XCTestCase {
         XCTAssertEqual(pkrllSortedPile, appleSortedPile)
     }
     
-    func testInsertionSortSorted() {
+    func testQuickSortSorted() {
         let sortPile = [25, 2, 654, 45, 1356, 3, 1, 65, 8, 17, 4, 245, 9].sorted()
         let appleSortedPile = sortPile
         var pkrllSortedPile = sortPile
@@ -38,7 +38,7 @@ final class QuickSortTests: XCTestCase {
         XCTAssertEqual(pkrllSortedPile, appleSortedPile)
     }
 
-    func testInsertionSortIteratively() {
+    func testQuickSortIteratively() {
         let sortPile = [25, 2, 654, 45, 1356, 3, 1, 65, 8, 17, 4, 245, 9]
         let appleSortedPile = sortPile.sorted()
         var pkrllSortedPile = sortPile
@@ -47,7 +47,7 @@ final class QuickSortTests: XCTestCase {
         XCTAssertEqual(pkrllSortedPile, appleSortedPile)
     }
     
-    func testInsertionSortRandomIteratively() {
+    func testQuickSortRandomIteratively() {
         var pile: [UInt32] = []
         
         for _ in 1...150 {
@@ -62,7 +62,7 @@ final class QuickSortTests: XCTestCase {
         XCTAssertEqual(pkrllSortedPile, appleSortedPile)
     }
     
-    func testInsertionSortSortedIteratively() {
+    func testQuickSortSortedIteratively() {
         let sortPile = [25, 2, 654, 45, 1356, 3, 1, 65, 8, 17, 4, 245, 9].sorted()
         let appleSortedPile = sortPile
         var pkrllSortedPile = sortPile
