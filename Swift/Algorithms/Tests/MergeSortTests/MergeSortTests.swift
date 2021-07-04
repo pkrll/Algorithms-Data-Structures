@@ -13,6 +13,24 @@ final class MergeSortTests: XCTestCase {
         pkrllSortedPile.mergeSort()
         XCTAssertEqual(pkrllSortedPile, appleSortedPile)
     }
+
+    func testMergeSortShortList() {
+        let sortPile = [25, 2, 654]
+        let appleSortedPile = sortPile.sorted()
+        var pkrllSortedPile = sortPile
+
+        pkrllSortedPile.mergeSort()
+        XCTAssertEqual(pkrllSortedPile, appleSortedPile)
+    }
+    
+    func testMergeSortSortedList() {
+        let sortPile = [25, 2, 654, 45, 1356, 3, 1, 65, 8, 17, 4, 245, 9].sorted()
+        let appleSortedPile = sortPile
+        var pkrllSortedPile = sortPile
+
+        pkrllSortedPile.mergeSort()
+        XCTAssertEqual(pkrllSortedPile, appleSortedPile)
+    }
     
     func testMergeSortRandom() {
         var pile: [UInt32] = []
