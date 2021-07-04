@@ -13,8 +13,8 @@ extension Array where Element: Comparable {
         
         let midIndex = count / 2
         
-        let lhs = Array(self[0..<midIndex])
-        let rhs = Array(self[midIndex..<count])
+        let lhs = Array(self[..<midIndex])
+        let rhs = Array(self[midIndex...])
         
         let sortedLhs = lhs.divide()
         let sortedRhs = rhs.divide()

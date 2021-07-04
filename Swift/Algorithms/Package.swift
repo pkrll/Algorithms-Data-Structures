@@ -14,7 +14,8 @@ let package = Package(
         .testTarget(name: "BinarySearchTests", dependencies: ["Algorithms"]),
         .testTarget(name: "BubbleSortTests", dependencies: ["Algorithms"]),
         .testTarget(name: "InsertionSortTests", dependencies: ["Algorithms"]),
+        .testTarget(name: "MergeSortTests", dependencies: ["Algorithms"]),
         .testTarget(name: "QuickSortTests", dependencies: ["Algorithms"]),
-        .testTarget(name: "MergeSortTests", dependencies: ["Algorithms"])
+        .testTarget(name: "SelectionSortTests", dependencies: ["Algorithms"])
     ]
 )
