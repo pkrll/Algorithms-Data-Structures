@@ -3,16 +3,16 @@ import Foundation
 extension Array where Element: Comparable {
     mutating func selectionSortIteratively() {
         for index in 0..<count {
-            let startIndex = index + 1
-            var selectedIndex = index
+            let indexOfFirstUnsortedElement = index + 1
+            var indexOfSmallestElement = index
             
-            for index in startIndex..<count {
-                if self[selectedIndex] > self[index] {
-                    selectedIndex = index
+            for index in indexOfFirstUnsortedElement..<count {
+                if self[indexOfSmallestElement] > self[index] {
+                    indexOfSmallestElement = index
                 }
             }
             
-            swapAt(selectedIndex, index)
+            swapAt(indexOfSmallestElement, index)
         }
     }
 }
