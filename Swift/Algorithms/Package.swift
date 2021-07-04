@@ -13,6 +13,7 @@ let package = Package(
         .target(name: "Algorithms", dependencies: [], path: "Sources/"),
         .testTarget(name: "BinarySearchTests", dependencies: ["Algorithms"]),
         .testTarget(name: "BubbleSortTests", dependencies: ["Algorithms"]),
+        .testTarget(name: "EnumeratedStackTests", dependencies: ["Algorithms"]),
         .testTarget(name: "InsertionSortTests", dependencies: ["Algorithms"]),
         .testTarget(name: "LinkedListTests", dependencies: ["Algorithms"]),
         .testTarget(name: "MergeSortTests", dependencies: ["Algorithms"]),
